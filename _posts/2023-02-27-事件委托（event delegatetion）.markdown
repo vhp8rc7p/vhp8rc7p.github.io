@@ -13,12 +13,12 @@
 </ul>
 ```
 
-![](/vhp8rc7p.github.io/assets/2023-02-27-事件委托（event%20delegatetion）/list.png "list")
+![](/assets/2023-02-27-事件委托（event%20delegatetion）/list.png "list")
 
 
 当你点击任意的&lt;li>子节点时,都会触发点击事件。
 
-![](/vhp8rc7p.github.io/assets/2023-02-27-事件委托（event%20delegatetion）/alert.png "alert")
+![](/assets/2023-02-27-事件委托（event%20delegatetion）/alert.png "alert")
 
 但这样我们怎么知道是哪个子节点被点击了呢？我们只需要在事件传播到父节点的时候，检查event对象的属性就可以了。
 
@@ -33,7 +33,7 @@ document.getElementById("parent").addEventListener("click", function(e) {
 
 ```
 
-![](/vhp8rc7p.github.io/assets/2023-02-27-事件委托（event%20delegatetion）/which.png "which")
+![](/assets/2023-02-27-事件委托（event%20delegatetion）/which.png "which")
 
 那么这样做有什么好处呢？
 

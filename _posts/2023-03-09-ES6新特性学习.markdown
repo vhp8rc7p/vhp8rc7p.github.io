@@ -19,6 +19,7 @@ var x=2;
 console.log(globalThis.x)
 ```
 ![](/assets/2023-03-09-ES6新特性学习/globalThis.png)
+
 使用var重复定义同名变量是合法的，var定义的变量是函数作用域，因此我们经常使用var定义循环的i，它对于循环体来说是不可见的：
 ```
 for(var i=0;i<arr.length;i++)
@@ -63,12 +64,14 @@ let x=3;
 ![](/assets/2023-03-09-ES6新特性学习/redeclare_error.png)
 
 ![](/assets/2023-03-09-ES6新特性学习/output.png)
+
 在严格模式下(strict mode)，使用未声明的变量会报错
 ```
         "use strict"
         x = 2;
 ```
 ![](/assets/2023-03-09-ES6新特性学习/strict.png)
+
 未处于strict mode时，不使用var、let、const关键字定义变量，而是直接给未声明的变量赋值，这个变量会成为全局变量。
 ```
         x = 2;

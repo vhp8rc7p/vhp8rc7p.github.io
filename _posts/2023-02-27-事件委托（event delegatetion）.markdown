@@ -1,3 +1,11 @@
+---
+layout: post
+title:  "什么是事件委托（event delegation）"
+date:   2023-02-27 09:38:58 +0800
+tags: JavaScript 学习笔记
+
+---
+
 # 什么是事件委托（event delegation）？
 ***
 事件捕获和事件冒泡使我们能够实现最强大的事件处理模式之一事件委托。

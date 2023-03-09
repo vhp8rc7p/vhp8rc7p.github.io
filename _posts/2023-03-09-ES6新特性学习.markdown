@@ -1,0 +1,77 @@
+---
+layout: post
+title:  "ES6新特性学习"
+date:   2023-03-09 09:38:58 +0800
+tags: JavaScript 学习笔记
+
+---
+在es出现之前，只有一种定义变量的方法，就是通过`var`关键字，并且没有定义常量的方法：
+```
+var x;
+var data=[],count=data.length;
+for(var i=0;i<count;i++) console.log(data[i])
+```
+var定义的变量对于最外层的函数是可见的，不管它嵌套的有多深。
+
+在函数体外面使用`var`定义的都是全局变量，并且这样会在全局对象上定义同名的属性，但delete操作符无法删除这种属性，比如
+```
+var x=2;
+console.log(globalThis.x)
+```
+![](../assets/2023-03-09-ES6新特性学习/globalThis.png)
+使用var重复定义同名变量是合法的，var定义的变量是函数作用域，因此我们经常使用var定义循环的i，它对于循环体来说是不可见的：
+```
+for(var i=0;i<arr.length;i++)
+```
+使用var定义的变量是带有hoisting效果的，也就是说，你可以在代码的开头使用在代码尾部用var定义的变量，如果你没有初始化，变量的默认值是`undefined`，并且不会报错。
+
+在es6出现之后，我们可以使用`let`关键字声明变量，比如这样：
+```
+let i;
+let sum;
+```
+一句声明定义多个变量：
+```
+let i,sum;
+```
+在声明变量的时候，最好给他们赋个初值:
+```
+let message="hello";
+let x=2,y=x*x;
+```
+如果不赋初值的话，它的值默认为`undefined`。
+
+定义一个常量我们可以用`const`关键字，不同于`let`，在定义常量的时候，我们必须初始化常量：
+```
+const H0=74;
+const C=299792.458;
+const AU=1.496E8;
+```
+使用`let`和`const`定义的变量和常量都是块级作用域(block scoped)，这意味着变量只在`let`或`const`出现的那一块(block)代码内有效，class和function是块，if/else语句的body也是块，当一个声明出现在最顶层时，它定义的变量是全局变量或常量，在客户端js代码中，有效的范围通常是它所在的html文档。
+
+使用let或者const重复定义相同名字的变量常量会报错，
+在嵌套氛围内定义与全局变量同名的变量是合法的，但不易读:
+```
+const x=1;
+if(x===1){
+    x=2;
+    console.log('打印的是if语句里面的x：',x)
+}
+console.log('全局的x：',x)
+let x=3;
+```
+![](../assets/2023-03-09-ES6新特性学习/redeclare_error.png)
+
+![](../assets/2023-03-09-ES6新特性学习/output.png)
+在严格模式下(strict mode)，使用未声明的变量会报错
+```
+        "use strict"
+        x = 2;
+```
+![](../assets/2023-03-09-ES6新特性学习/strict.png)
+未处于strict mode时，不使用var、let、const关键字定义变量，而是直接给未声明的变量赋值，这个变量会成为全局变量。
+```
+        x = 2;
+        console.log('类似于var定义的全局变量：',globalThis.x)
+```
+![](../assets/2023-03-09-ES6新特性学习/x=2.png)

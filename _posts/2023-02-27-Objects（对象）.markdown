@@ -1,0 +1,13 @@
+---
+layout: post
+title:  "JavaScript The Definitive Guide Chapter 6 第六章学习笔记"
+date:   2023-02-29 09:38:58 +0800
+tags: JavaScript 学习笔记
+
+---
+    一个对象是一组属性的无序集合，每个属性(property)都有一个名字(name)和对应的值(value)。
+属性的名字通常是字符串（strings），也可以是Symbol。
+    对象是可变的（mutable），我们通过引用（reference）而不是值操纵对象。
+## Creating Objects 创建对象
+
+
